@@ -1,11 +1,37 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Products List</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Products</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>8601</td>
+                    <td>86 (the band) - True Life Songs and Pictures</td>
+                    <td>$14.95</td>
+                    <td>
+                        <a href="product.html" class="button small">Edit</a>
+                        <a href="confirmDelete.html" class="button small delete">Delete</a>
+                    </td>
+                </tr>
+                <!-- More products -->
+            </tbody>
+        </table>
+        <a href="product.html" class="button">Add New Product</a>
+    </div>
+</body>
 </html>
