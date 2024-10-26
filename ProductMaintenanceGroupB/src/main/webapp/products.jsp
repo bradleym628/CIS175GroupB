@@ -18,8 +18,7 @@
     </head>
     <body>
         <div class="container">
-            <%-- Include database connection --%>
-            <%@ include file="dbConnection.jsp" %>
+            
 
             <h1>Products</h1>
 
