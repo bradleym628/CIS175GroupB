@@ -10,133 +10,56 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Products</title>
-        <link rel="stylesheet" href="css/styles.css">
-    </head>
-    <body>
-        <div class="container">
-            
-
-            <h1>Products</h1>
-
-            <%-- Display success/error messages if any --%>
-            <c:if test="${not empty param.message}">
-                <div class="alert alert-success">
-                    ${param.message}
-                </div>
-            </c:if>
-            <c:if test="${not empty param.error}">
-                <div class="alert alert-error">
-                    ${param.error}
-                </div>
-            </c:if>
-
-            <%-- Search form --%>
-            <div class="search-container">
-                <form action="products.jsp" method="GET" class="search-form">
-                    <input type="text" 
-                           name="search" 
-                           placeholder="Search products..."
-                           value="${param.search}">
-                    <button type="submit" class="button">Search</button>
-                </form>
-            </div>
-
-            <%
-                // Database query to fetch products
-                java.util.List<java.util.Map<String, Object>> products = new java.util.ArrayList<>();
-
-                try {
-                    String searchTerm = request.getParameter("search");
-                    String query = "SELECT * FROM products";
-                    if (searchTerm != null && !searchTerm.trim().isEmpty()) {
-                        query += " WHERE code LIKE ? OR description LIKE ?";
-                        // Add database code to execute search query
-                    } else {
-                        // Add database code to execute regular query
-                    }
-
-                    // Simulate some product data for demonstration
-                    java.util.Map<String, Object> product = new java.util.HashMap<>();
-                    product.put("id", "1");
-                    product.put("code", "8601");
-                    product.put("description", "86 (the band) - True Life Songs and Pictures");
-                    product.put("price", 14.95);
-                    products.add(product);
-
-                    request.setAttribute("products", products);
-                } catch (Exception e) {
-                    request.setAttribute("error", "Error loading products: " + e.getMessage());
-                }
-            %>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Code</th>
-                        <th>Description</th>
-                        <th>Price</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <c:choose>
-                        <c:when test="${empty products}">
-                            <tr>
-                                <td colspan="4" class="text-center">No products found</td>
-                            </tr>
-                        </c:when>
-                        <c:otherwise>
-                            <c:forEach var="product" items="${products}">
-                                <tr>
-                                    <td>${product.code}</td>
-                                    <td>${product.description}</td>
-                                    <td>
-                                        <fmt:formatNumber value="${product.price}" 
-                                                          type="currency" 
-                                                          currencySymbol="$"/>
-                                    </td>
-                                    <td class="actions">
-                                        <a href="productForm.jsp?action=edit&productId=${product.id}" 
-                                           class="button small">Edit</a>
-                                        <a href="confirmDelete.jsp?productId=${product.id}" 
-                                           class="button small delete"
-                                           onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
-                                    </td>
-                                </tr>
-                            </c:forEach>
-                        </c:otherwise>
-                    </c:choose>
-                </tbody>
-            </table>
-
-            <div class="button-container">
-                <a href="productForm.jsp?action=add" class="button">Add New Product</a>
-            </div>
-        </div>
-
-        <%-- Optional: Add sorting functionality --%>
-        <script>
-            function sortTable(columnIndex) {
-                const table = document.querySelector('table');
-                const tbody = table.querySelector('tbody');
-                const rows = Array.from(tbody.querySelectorAll('tr'));
-
-                rows.sort((a, b) => {
-                    const aValue = a.cells[columnIndex].textContent;
-                    const bValue = b.cells[columnIndex].textContent;
-
-                    if (columnIndex === 2) { // Price column
-                        return parseFloat(aValue.replace('$', '')) - parseFloat(bValue.replace('$', ''));
-                    }
-                    return aValue.localeCompare(bValue);
-                });
-
-                rows.forEach(row => tbody.appendChild(row));
-            }
-        </script>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Products</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>8601</td>
+                    <td>86 (the band) - True Life Songs and Pictures</td>
+                    <td><fmt:formatNumber value="14.95" type="currency" currencySymbol="$" /></td>
+                    <td>
+                        <a href="product.html" class="button small">Edit</a>
+                        <a href="confirmDelete.html" class="button small delete" onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>8602</td>
+                    <td>Album Title 2 - Artist 2</td>
+                    <td><fmt:formatNumber value="19.99" type="currency" currencySymbol="$" /></td>
+                    <td>
+                        <a href="product.html" class="button small">Edit</a>
+                        <a href="confirmDelete.html" class="button small delete" onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>8603</td>
+                    <td>Album Title 3 - Artist 3</td>
+                    <td><fmt:formatNumber value="24.99" type="currency" currencySymbol="$" /></td>
+                    <td>
+                        <a href="product.html" class="button small">Edit</a>
+                        <a href="confirmDelete.html" class="button small delete" onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
+                    </td>
+                </tr>
+                <!-- More products can be added here -->
+            </tbody>
+        </table>
+        <a href="product.html" class="button">Add New Product</a>
+    </div>
+</body>
 </html>
