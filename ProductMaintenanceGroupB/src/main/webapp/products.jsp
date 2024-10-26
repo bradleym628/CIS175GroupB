@@ -34,32 +34,14 @@
                     <td>86 (the band) - True Life Songs and Pictures</td>
                     <td><fmt:formatNumber value="14.95" type="currency" currencySymbol="$" /></td>
                     <td>
-                        <a href="product.html" class="button small">Edit</a>
-                        <a href="confirmDelete.html" class="button small delete" onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>8602</td>
-                    <td>Album Title 2 - Artist 2</td>
-                    <td><fmt:formatNumber value="19.99" type="currency" currencySymbol="$" /></td>
-                    <td>
-                        <a href="product.html" class="button small">Edit</a>
-                        <a href="confirmDelete.html" class="button small delete" onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>8603</td>
-                    <td>Album Title 3 - Artist 3</td>
-                    <td><fmt:formatNumber value="24.99" type="currency" currencySymbol="$" /></td>
-                    <td>
-                        <a href="product.html" class="button small">Edit</a>
-                        <a href="confirmDelete.html" class="button small delete" onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
+                        <a href="${pageContext.request.contextPath}/product.html" class="button small">Edit</a>
+                        <a href="${pageContext.request.contextPath}/confirmDelete.html" class="button small delete" onclick="return confirm('Are you sure you want to delete this product?')">Delete</a>
                     </td>
                 </tr>
                 <!-- More products can be added here -->
             </tbody>
         </table>
-        <a href="product.html" class="button">Add New Product</a>
+        <a href="${pageContext.request.contextPath}/product.html" class="button">Add New Product</a>
     </div>
 </body>
 </html>
