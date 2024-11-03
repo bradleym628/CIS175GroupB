@@ -1,0 +1,101 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Oct 18, 2024, 6:59:03 PM
+    Author     : betobandz
+*/
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: White;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background-color: #050505;
+    padding: 60px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2rem;
+    color: white;
+}
+
+.button {
+    display: inline-block;
+    background-color: #B10000;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 30px;
+}
+
+.button:hover {
+    background-color: #909090;
+}
+
+
+
+
+/* Products.html */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 3px solid #B10000;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+tr {
+    background-color:  #CACACA;
+}
+
+.button.small {
+    padding: 5px 10px;
+}
+
+.button.delete {
+    background-color: #B10000;
+}
+
+.button.delete:hover {
+    background-color: black;
+}
+
+/* Product.html */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+    color: white;
+}
+
+input[type="text"],
+input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
