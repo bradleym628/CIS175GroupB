@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: group3.business.ProductIOTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.099 s -- in group3.business.ProductIOTest
